@@ -1,5 +1,5 @@
 --dir=~/.dotfiles
---target=~
+--target=~/.config
 --verbose
 --restow
 --no-folding
