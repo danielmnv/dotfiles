@@ -1,5 +1,3 @@
-
-
 # Dotfiles
 
 This repository contains my personal dotfiles to set up and maintain a consistent macOS development environment. Managed using [GNU Stow](https://www.gnu.org/software/stow/) for easy symlink management.
@@ -15,10 +13,11 @@ stow .
 ```
 
 
-## To-Do Configuration Checklist
+## Configuration Checklist
 
-- [ ] aeorspace
-- [ ] sketchybar
+- [ ] aerospace _(in progress)_
+- [ ] sketchybar _(in progress)_
+  - [ ] fonts
 - [ ] neovim
 - [ ] wezterm
 - [ ] zsh

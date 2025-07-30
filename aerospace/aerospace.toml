@@ -25,16 +25,24 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
 [mode.main.binding]
     # Focus window
-    alt-j =         'focus --boundaries-action wrap-around-the-workspace left'
-    alt-k =         'focus --boundaries-action wrap-around-the-workspace down'
-    alt-i =         'focus --boundaries-action wrap-around-the-workspace up'
+    alt-j = 'focus --boundaries-action wrap-around-the-workspace left'
+    alt-k = 'focus --boundaries-action wrap-around-the-workspace down'
+    alt-i = 'focus --boundaries-action wrap-around-the-workspace up'
     alt-l = 'focus --boundaries-action wrap-around-the-workspace right'
-
+    alt-left = 'focus --boundaries-action wrap-around-the-workspace left'
+    alt-down = 'focus --boundaries-action wrap-around-the-workspace down'
+    alt-up = 'focus --boundaries-action wrap-around-the-workspace up'
+    alt-right = 'focus --boundaries-action wrap-around-the-workspace right'
+    
     # Move window
     alt-shift-j = 'move left'
     alt-shift-k = 'move down'
     alt-shift-i = 'move up'
     alt-shift-l = 'move right'
+    alt-shift-left = 'move left'
+    alt-shift-down = 'move down'
+    alt-shift-up = 'move up'
+    alt-shift-right = 'move right'
 
     # Layout like i3
     alt-h = 'split horizontal'
@@ -75,6 +83,8 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 [mode.resize.binding]
     j = 'resize smart -50'
     l = 'resize smart +50'
+    left='resize smart -50'
+    right= 'resize smart +50'
 
     enter = 'mode main'
     esc = 'mode main'

@@ -1,5 +1,5 @@
---dir=~/.dotfiles
 --target=~/.config
 --verbose
 --restow
---no-folding
+--ignore=.stowrc
+--ignore=README.md
