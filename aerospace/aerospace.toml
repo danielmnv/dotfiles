@@ -1,8 +1,10 @@
 # Start AeroSpace at login
 start-at-login = false
 
-# Run Sketchybar
-after-startup-command = ['exec-and-forget sketchybar']
+# Startup commands
+after-startup-command = [
+    'exec-and-forget sketchybar',
+]
 
 # Notify Sketchybar about workspace change
 exec-on-workspace-change = ['/bin/bash', '-c',
