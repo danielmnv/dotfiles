@@ -54,16 +54,18 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
     alt-shift-space = 'layout floating tiling' # 'floating toggle' in i3
 
     # Change workspace
-    ctrl-q= 'workspace 1'
+    ctrl-q = 'workspace 1'
     ctrl-w = 'workspace 2'
     ctrl-e = 'workspace 3'
     ctrl-r = 'workspace 4'
     ctrl-t = 'workspace 5'
     ctrl-y = 'workspace 6'
-    ctrl-u = 'workspace 7'
-    ctrl-i = 'workspace 8'
-    ctrl-o = 'workspace 9'
-    ctrl-p = 'workspace 10'
+    alt-1 = 'workspace 1'
+    alt-2 = 'workspace 2'
+    alt-3 = 'workspace 3'
+    alt-4 = 'workspace 4'
+    alt-5 = 'workspace 5'
+    alt-6 = 'workspace 6'
 
     # Move window to workspace
     alt-shift-1 = 'move-node-to-workspace 1'
@@ -72,11 +74,8 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
     alt-shift-4 = 'move-node-to-workspace 4'
     alt-shift-5 = 'move-node-to-workspace 5'
     alt-shift-6 = 'move-node-to-workspace 6'
-    alt-shift-7 = 'move-node-to-workspace 7'
-    alt-shift-8 = 'move-node-to-workspace 8'
-    alt-shift-9 = 'move-node-to-workspace 9'
-    alt-shift-0 = 'move-node-to-workspace 10'
 
+    # Modes
     alt-shift-c = 'reload-config'
     alt-r = 'mode resize'
 
@@ -88,3 +87,97 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
     enter = 'mode main'
     esc = 'mode main'
+
+[workspace-to-monitor-force-assignment]
+    # Multiple monitores ->  Left Vertical: Secondary - Right Horizontal: Main
+    # Single monitor -> Main full screen
+    1 = ["main"]
+    2 = ["main"]
+    3 = ["main"]
+    4 = ["secondary", "main"]
+    5 = ["secondary", "main"]
+    6 = ["main"]
+
+# Move apps to workspace
+# Browser
+[[on-window-detected]]
+    if.app-id = 'com.google.Chrome'
+    run = 'move-node-to-workspace 1'
+[[on-window-detected]]
+    if.app-id = 'com.apple.Safari'
+    run = 'move-node-to-workspace 1'
+
+# Code and terminal
+[[on-window-detected]]
+    if.app-id = 'com.todesktop.230313mzl4w4u92' # Cursor
+    run = 'move-node-to-workspace 2'
+[[on-window-detected]]
+    if.app-id = 'com.microsoft.VSCode'
+    run = 'move-node-to-workspace 2'
+[[on-window-detected]]
+    if.app-id = 'com.jetbrains.WebStorm'
+    run = 'move-node-to-workspace 2'
+[[on-window-detected]]
+    if.app-id = 'com.jetbrains.fleet'
+    run = 'move-node-to-workspace 2'
+[[on-window-detected]]
+    if.app-id = 'com.jetbrains.datagrip'
+    run = 'move-node-to-workspace 2'
+[[on-window-detected]]
+    if.app-id = 'com.apple.dt.Xcode'
+    run = 'move-node-to-workspace 2'
+[[on-window-detected]]
+    if.app-id = 'com.github.wez.wezterm'
+    run = 'move-node-to-workspace 2'
+
+# Messaging
+[[on-window-detected]]
+    if.app-id = 'com.tinyspeck.slackmacgap'
+    run = 'move-node-to-workspace 3'
+[[on-window-detected]]
+    if.app-id = 'us.zoom.xos'
+    run = 'move-node-to-workspace 3'
+[[on-window-detected]]
+    if.app-id = 'net.whatsapp.WhatsApp'
+    run = 'move-node-to-workspace 3'
+[[on-window-detected]]
+    if.app-id = 'com.electron.realtimeboard'
+    run = 'move-node-to-workspace 3'
+
+# Productivity and design
+[[on-window-detected]]
+    if.app-id = 'md.obsidian'
+    run = 'move-node-to-workspace 4'
+[[on-window-detected]]
+    if.app-id = 'com.figma.Desktop'
+    run = 'move-node-to-workspace 4'
+[[on-window-detected]]
+    if.app-id = 'notion.id '
+    run = 'move-node-to-workspace 4'
+[[on-window-detected]]
+    if.app-id = 'com.linear'
+    run = 'move-node-to-workspace 4'
+[[on-window-detected]]
+    if.app-id = 'com.apple.Notes'
+    run = 'move-node-to-workspace 4'
+[[on-window-detected]]
+    if.app-id = 'com.goodnotesapp.x'
+    run = 'move-node-to-workspace 4'
+
+# Media
+[[on-window-detected]]
+    if.app-id = 'com.spotify.client'
+    run = 'move-node-to-workspace 5'
+[[on-window-detected]]
+    if.app-id = 'com.apple.Music'
+    run = 'move-node-to-workspace 5'
+[[on-window-detected]]
+    if.app-id = 'com.apple.podcasts'
+    run = 'move-node-to-workspace 5'
+[[on-window-detected]]
+    if.app-id = 'com.apple.TV'
+    run = 'move-node-to-workspace 5'
+
+# Other apps will be moved to workspace 6
+[[on-window-detected]]
+    run = 'move-node-to-workspace 6'
