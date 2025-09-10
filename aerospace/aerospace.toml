@@ -100,7 +100,7 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
     5 = ["secondary", "main"]
     6 = ["main"]
 
-# Move apps to workspace
+# Open apps on workspace
 # Browser
 [[on-window-detected]]
     if.app-id = 'com.google.Chrome'
@@ -154,7 +154,7 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
     if.app-id = 'com.figma.Desktop'
     run = 'move-node-to-workspace 4'
 [[on-window-detected]]
-    if.app-id = 'notion.id '
+    if.app-id = 'notion.id'
     run = 'move-node-to-workspace 4'
 [[on-window-detected]]
     if.app-id = 'com.linear'
@@ -164,6 +164,9 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
     run = 'move-node-to-workspace 4'
 [[on-window-detected]]
     if.app-id = 'com.goodnotesapp.x'
+    run = 'move-node-to-workspace 4'
+[[on-window-detected]]
+    if.app-id = 'com.openai.chat'
     run = 'move-node-to-workspace 4'
 
 # Media
@@ -179,7 +182,3 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 [[on-window-detected]]
     if.app-id = 'com.apple.TV'
     run = 'move-node-to-workspace 5'
-
-# Other apps will be moved to workspace 6
-[[on-window-detected]]
-    run = 'move-node-to-workspace 6'

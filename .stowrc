@@ -3,3 +3,4 @@
 --restow
 --ignore=.stowrc
 --ignore=README.md
+--ignore=.vscode
