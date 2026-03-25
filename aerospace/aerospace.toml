@@ -1,5 +1,5 @@
 # Start AeroSpace at login
-start-at-login = false
+start-at-login = true
 
 # Startup commands
 after-startup-command = [
@@ -22,7 +22,7 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
     inner.vertical =   10
     outer.left =       10
     outer.bottom =     10
-    outer.top =        48
+    outer.top =        [{ monitor.main = 58 }, 10]
     outer.right =      10
 
 [mode.main.binding]
@@ -35,7 +35,7 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
     alt-down = 'focus --boundaries-action wrap-around-the-workspace down'
     alt-up = 'focus --boundaries-action wrap-around-the-workspace up'
     alt-right = 'focus --boundaries-action wrap-around-the-workspace right'
-    
+
     # Move window
     alt-shift-j = 'move left'
     alt-shift-k = 'move down'
@@ -84,23 +84,26 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 [mode.resize.binding]
     j = 'resize smart -50'
     l = 'resize smart +50'
-    left='resize smart -50'
-    right= 'resize smart +50'
+    i = 'resize smart -50'
+    k = 'resize smart +50'
+    left  = 'resize smart -50'
+    right = 'resize smart +50'
+    up    = 'resize smart -50'
+    down  = 'resize smart +50'
 
     enter = 'mode main'
     esc = 'mode main'
 
 [workspace-to-monitor-force-assignment]
-    # Multiple monitores ->  Left Vertical: Secondary - Right Horizontal: Main
+    # Dual monitors ->  Bottom/Left-Vertical: Secondary - Top/Right-Horizontal: Main
     # Single monitor -> Main full screen
     1 = ["main"]
     2 = ["main"]
     3 = ["main"]
     4 = ["secondary", "main"]
     5 = ["secondary", "main"]
-    6 = ["main"]
+    6 = ["secondary", "main"]
 
-# Open apps on workspace
 # Browser
 [[on-window-detected]]
     if.app-id = 'com.google.Chrome'
@@ -108,22 +111,13 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 [[on-window-detected]]
     if.app-id = 'com.apple.Safari'
     run = 'move-node-to-workspace 1'
-
-# Code and terminal
 [[on-window-detected]]
-    if.app-id = 'com.todesktop.230313mzl4w4u92' # Cursor
-    run = 'move-node-to-workspace 2'
+    if.app-id = 'ai.perplexity.comet'
+    run = 'move-node-to-workspace 1'
+
+# IDEs & Terminal
 [[on-window-detected]]
     if.app-id = 'com.microsoft.VSCode'
-    run = 'move-node-to-workspace 2'
-[[on-window-detected]]
-    if.app-id = 'com.jetbrains.WebStorm'
-    run = 'move-node-to-workspace 2'
-[[on-window-detected]]
-    if.app-id = 'com.jetbrains.fleet'
-    run = 'move-node-to-workspace 2'
-[[on-window-detected]]
-    if.app-id = 'com.jetbrains.datagrip'
     run = 'move-node-to-workspace 2'
 [[on-window-detected]]
     if.app-id = 'com.apple.dt.Xcode'
@@ -132,53 +126,64 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
     if.app-id = 'com.github.wez.wezterm'
     run = 'move-node-to-workspace 2'
 
-# Messaging
+# Tools
 [[on-window-detected]]
-    if.app-id = 'com.tinyspeck.slackmacgap'
+    if.app-id = 'com.jetbrains.datagrip'
+    run = 'move-node-to-workspace 3'
+[[on-window-detected]]
+    if.app-id = 'app.yaak.desktop'
+    run = 'move-node-to-workspace 3'
+[[on-window-detected]]
+    if.app-id = 'com.electron.dockerdesktop'
     run = 'move-node-to-workspace 3'
 [[on-window-detected]]
     if.app-id = 'us.zoom.xos'
+    run = ['move-node-to-workspace 3', 'layout floating']
+[[on-window-detected]]
+    if.app-id = 'com.anthropic.claudefordesktop'
     run = 'move-node-to-workspace 3'
-[[on-window-detected]]
-    if.app-id = 'net.whatsapp.WhatsApp'
-    run = 'move-node-to-workspace 3'
-[[on-window-detected]]
-    if.app-id = 'com.electron.realtimeboard'
-    run = 'move-node-to-workspace 3'
-
-# Productivity and design
-[[on-window-detected]]
-    if.app-id = 'md.obsidian'
-    run = 'move-node-to-workspace 4'
-[[on-window-detected]]
-    if.app-id = 'com.figma.Desktop'
-    run = 'move-node-to-workspace 4'
-[[on-window-detected]]
-    if.app-id = 'notion.id'
-    run = 'move-node-to-workspace 4'
-[[on-window-detected]]
-    if.app-id = 'com.linear'
-    run = 'move-node-to-workspace 4'
-[[on-window-detected]]
-    if.app-id = 'com.apple.Notes'
-    run = 'move-node-to-workspace 4'
-[[on-window-detected]]
-    if.app-id = 'com.goodnotesapp.x'
-    run = 'move-node-to-workspace 4'
 [[on-window-detected]]
     if.app-id = 'com.openai.chat'
+    run = 'move-node-to-workspace 3'
+
+# Communications
+[[on-window-detected]]
+    if.app-id = 'com.tinyspeck.slackmacgap'
     run = 'move-node-to-workspace 4'
+[[on-window-detected]]
+    if.app-id = 'net.whatsapp.WhatsApp'
+    run = 'move-node-to-workspace 4'
+[[on-window-detected]]
+    if.app-id = 'com.cron.electron'
+    run = 'move-node-to-workspace 4'
+[[on-window-detected]]
+    if.app-id = 'notion.mail.id'
+    run = 'move-node-to-workspace 4'
+
+# Design & PM
+[[on-window-detected]]
+    if.app-id = 'com.figma.Desktop'
+    run = 'move-node-to-workspace 5'
+[[on-window-detected]]
+    if.app-id = 'notion.id'
+    run = 'move-node-to-workspace 5'
+[[on-window-detected]]
+    if.app-id = 'com.linear'
+    run = 'move-node-to-workspace 5'
 
 # Media
 [[on-window-detected]]
     if.app-id = 'com.spotify.client'
-    run = 'move-node-to-workspace 5'
+    run = 'move-node-to-workspace 6'
+[[on-window-detected]]
+    if.app-id = 'com.sertacozercan.Kaset'
+    run = 'move-node-to-workspace 6'
 [[on-window-detected]]
     if.app-id = 'com.apple.Music'
-    run = 'move-node-to-workspace 5'
+    run = 'move-node-to-workspace 6'
 [[on-window-detected]]
     if.app-id = 'com.apple.podcasts'
-    run = 'move-node-to-workspace 5'
+    run = 'move-node-to-workspace 6'
 [[on-window-detected]]
     if.app-id = 'com.apple.TV'
-    run = 'move-node-to-workspace 5'
+    run = 'move-node-to-workspace 6'
