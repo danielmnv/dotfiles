@@ -22,7 +22,7 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
     inner.vertical =   10
     outer.left =       10
     outer.bottom =     10
-    outer.top =        [{ monitor.main = 58 }, 10]
+    outer.top =        [{ monitor."Built-in.*" = 29 }, { monitor.main = 58 }, 10]
     outer.right =      10
 
 [mode.main.binding]
